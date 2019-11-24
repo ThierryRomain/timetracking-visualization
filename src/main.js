@@ -98,6 +98,16 @@
 
   // window.myLine.update();
 
-const parser = new TimetrackingParser("./data/timetracking.csv");
+// const parser = new TimetrackingParser("./data/timetracking.csv");
+//
+// parser.load();
 
-parser.load();
+var activities = [
+  { name : "sleep" , prob : 1 , min : 300 , max : 600 , maxfreq : 1 },
+  { name : "making dreams come true" , prob : 1 , min : 20 , max : 75 , maxfreq : NULL },
+  { name : "programming" , prob : 1 , min : 45 , max : 400 , maxfreq : NULL },
+  { name : "drinking coffee" , prob : 1 , min : 5 , max : 30 , maxfreq : 20 },
+  { name : "squashing bugs" , prob : 1 , min : 20 , max : 200 , maxfreq : NULL }
+]
+
+const generator = new DataGenerator(activities, 1000, days);
