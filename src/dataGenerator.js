@@ -4,7 +4,8 @@ class DataGenerator {
     this.activities = activities;
     this.timesteps = timesteps;
     this.granularity = granularity;
-    this.colors = ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"];
+    this.colors = ["#EBEBC6", "#97FBEA", "#98F7FB", "#A2EAB4", "#B09CDE", "#F1C1FF", "#96FAAF", "#FFA6A6", "#9BBCE0", "#FFE0A5", "#A0C4DC", "#D699FF", "#F9C0FB", "#B8E8AC", "#EEDE94", "#F1D895", "#9EB3E4", "#F4C2FF", "#CC95CC", "#E5D1AE", "#B2D2CC", "#CFAAF4", "#A5E991", "#B8B8FF", "#ADF398", "#FFB0CA", "#D3BFFF", "#A8B0E8", "#E6C7B1", "#F0DDB0", "#ABEEFE", "#D698D6", "#FFBAEE", "#BFECFF", "#FFBDDE", "#E4C4B4", "#98FEF9", "#D8D898", "#C7A1D1", "#EDBFFE", "#96F9C5", "#E3C3BC", "#BDDBFF", "#FFC998", "#F8CF9D", "#98F0FD", "#95F7DA", "#DD9FC6", "#BAD3BB", "#BDA6F1", "#E5D9B1", "#A2CEDB", "#FFC0E7", "#F1D595", "#E9E094", "#FC9898", "#9898EB", "#DEBCAD", "#ABA1EE", "#E3E3A3", "#BDE3FF", "#BAF294", "#B3CAFF", "#E5C8AA", "#E0BFFF", "#B5FD9D", "#ABD0D4", "#FFBFF6", "#F4B1B1", "#B0EE93", "#CBA8EC", "#CEA3CE", "#9AC8D5", "#E2C0B3", "#FFD3AB", "#EBB5B5", "#A6B6F0", "#E2C0B1", "#F2DB94", "#E1E29A", "#F8DB9D", "#EBA1AC", "#FFCEA2", "#C9E596", "#B2BDFF", "#E6C5B8", "#FFBEEA", "#E2A5B6", "#FFDAA9", "#F4A8AD", "#DCDD99", "#E2C3C3", "#D3A2F9", "#CF9CD4", "#A5BFE2", "#C899D9", "#D29EE6"];
+    this.colorOffset = getRandomInt(0,this.colors.length-1);
   }
 
   setTimesteps(t){
@@ -58,12 +59,14 @@ class DataGenerator {
     return x_axis;
   }
 
-  generateData(mult){
+  generateData(mult,relative){
     let dataArr = [];
     for(let i in this.activities){
       let thisObj = {};
       thisObj.label = this.activities[i].name;
-      thisObj.borderColor = this.colors[getRandomInt(0,this.colors.length-1)];
+      thisObj.type = 'bar';
+      this.colorOffset = i + this.colorOffset;
+      thisObj.borderColor = this.colors[(this.colorOffset)%this.colors.length];
       thisObj.backgroundColor = thisObj.borderColor;
       let series = [];
       for(let j = 0; j < this.timesteps; j++){
@@ -73,9 +76,14 @@ class DataGenerator {
             timestepTotal += getRandomInt(this.activities[i].min,this.activities[i].max);
           }
         }
-        series.push(timestepTotal);
+        if(relative){
+          series.push(Math.floor((timestepTotal/(1440*mult))*100));
+        }else{
+          series.push(timestepTotal);
+        }
       }
       thisObj.data = series;
+      // thisObj.data = ((0.5 < Math.random()) ? series : series.map(x => x * -1));
       dataArr.push(thisObj);
     }
     return dataArr;
@@ -99,20 +107,20 @@ class DataGenerator {
     }
   }
 
-  generateDataSets(){
+  generateDataSets(relative){
     switch(this.granularity){
       case 'days':
-      return this.generateData(1);
+      return this.generateData(1,relative);
       break;
       case 'weeks':
-      return this.generateData(7);
+      return this.generateData(7,relative);
       break;
       case 'months':
-      return this.generateData(30);
+      return this.generateData(30,relative);
       break;
       default:
       console.error('unknown granularity, will generate datasets using days. Current supported granularity are days, weeks and months.');
-      return this.generateData(1);
+      return this.generateData(1,relative);
       break;
     }
   }
