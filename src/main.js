@@ -104,10 +104,18 @@
 
 var activities = [
   { name : "sleep" , prob : 1 , min : 300 , max : 600 , maxfreq : 1 },
-  { name : "making dreams come true" , prob : 1 , min : 20 , max : 75 , maxfreq : NULL },
-  { name : "programming" , prob : 1 , min : 45 , max : 400 , maxfreq : NULL },
+  { name : "making dreams come true" , prob : 1 , min : 20 , max : 75 , maxfreq : null },
+  { name : "programming" , prob : 1 , min : 45 , max : 400 , maxfreq : null },
   { name : "drinking coffee" , prob : 1 , min : 5 , max : 30 , maxfreq : 20 },
-  { name : "squashing bugs" , prob : 1 , min : 20 , max : 200 , maxfreq : NULL }
+  { name : "squashing bugs" , prob : 1 , min : 20 , max : 200 , maxfreq : null }
 ]
 
-const generator = new DataGenerator(activities, 1000, days);
+const generator = new DataGenerator(activities,100,'days');
+
+console.log(generator.generateXaxis());
+generator.setGranularity('weeks');
+console.log(generator.generateXaxis());
+generator.setGranularity('months');
+console.log(generator.generateXaxis());
+generator.setGranularity('donwjdka');
+console.log(generator.generateXaxis());
