@@ -1,0 +1,132 @@
+.op-header {
+  width: 100vw;
+  height: 100px;
+  background-color: #21294c;
+}
+
+.op-logo {
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.body {
+  background-color: rgba(249, 242, 215, 0.56);
+  font-family: Raleway, sans-serif;
+  color: #21294c;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.op-logo-arrow {
+  display: block;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.op-project-title {
+  margin-bottom: 40px;
+  font-family: Poppins, sans-serif;
+  color: #21294c;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.op-prompt-card {
+  display: inline-block;
+  width: 40%;
+  margin: 10px;
+  padding: 20px 5%;
+  border-radius: 12px;
+  -webkit-transition: color 400ms ease, background-color 400ms ease;
+  transition: color 400ms ease, background-color 400ms ease;
+  color: #21294c;
+  text-align: center;
+}
+
+.op-prompt-card:hover {
+  background-color: hsla(0, 0%, 100%, 0.4);
+  color: #f9b248;
+}
+
+.op-prompt-card-icon {
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.op-prompt-card-title {
+  margin-bottom: 20px;
+  font-family: Poppins, sans-serif;
+  font-size: 23px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.text-block {
+  margin-top: 20px;
+}
+
+.op-center-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-right: 10%;
+  padding-left: 10%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.op-section-heading {
+  margin-top: 10px;
+  padding-left: 5%;
+  font-weight: 400;
+}
+
+.op-section-tab {
+  width: 100%;
+  border-top: 2px solid #21294c;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 0px;
+  background-color: #f9f2d7;
+}
+
+.dropdown-list {
+  background-color: #f9f2d7;
+}
+
+@media (max-width: 767px) {
+  .op-project-title {
+    font-size: 30px;
+  }
+  .op-prompt-card {
+    width: 44%;
+  }
+}
+
+@media (max-width: 479px) {
+  .op-prompt-card {
+    width: 90%;
+  }
+  .op-center-container {
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+  .op-section-heading {
+    font-size: 24px;
+  }
+}
