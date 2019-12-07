@@ -8,15 +8,17 @@ var activities = [
 ];
 var userSettings = new SettingsCollector(0);
 var chartLoader = new ChartLoader(userSettings,activities);
-
-// window.onload = function() {
-//   var ctx = document.getElementById('mainChart').getContext('2d');
-//   window.myLine = new Chart(ctx, config);
-// };
+const parser = new TimetrackingParser("./data/timetracking.csv");
 
 
+  function readSingleFile(evt) {
+    $(".file-popup-container").hide(400);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var d = e.target.result.split("\n");
+      parser.load(d);
+    }
+    reader.readAsText(document.getElementById('fileinput').files[0]);
+  }
 
-
-// const parser = new TimetrackingParser("./data/timetracking.csv");
-//
-// parser.load();
+  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);

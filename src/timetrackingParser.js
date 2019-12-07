@@ -61,13 +61,18 @@ class TimetrackingParser {
     }
   }
 
-  load(){
+  load(data){
     var tracker  = this;
-    $.get(this.dataFile,function(txt){
-      var lines = txt.split("\n");
+    if(data == undefined){
+      $.get(this.dataFile,function(txt){
+        var lines = txt.split("\n");
+        tracker.getCategoriesTotal(lines);
+        tracker.addDayData(lines);
+      });
+    }else{
+      var lines = data;
       tracker.getCategoriesTotal(lines);
       tracker.addDayData(lines);
-      console.log(tracker.parsedData);
-    });
+    }
   }
 }

@@ -9,6 +9,16 @@
   <link href="src/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
+  <div class="file-popup-container">
+    <div class="op-file-form">
+      <label>Choose a file
+        <input type="file" accept=".csv" id="fileinput" />
+      </label>
+      <div class="op-file-prompt-close-container">
+        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="times" class="op-prompt-file-cancel svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><g class="fa-group"><path class="fa-secondary" fill="currentColor" d="M9.21,356.07a31.46,31.46,0,0,0,0,44.48l22.24,22.24a31.46,31.46,0,0,0,44.48,0L176,322.72,109.28,256ZM342.79,111.45,320.55,89.21a31.46,31.46,0,0,0-44.48,0L176,189.28,242.72,256,342.79,155.93a31.46,31.46,0,0,0,0-44.48Z" opacity="0.4"></path><path class="fa-primary" fill="currentColor" d="M342.79,356.07a31.46,31.46,0,0,1,0,44.48l-22.24,22.24a31.46,31.46,0,0,1-44.48,0L9.21,155.93a31.46,31.46,0,0,1,0-44.48L31.45,89.21a31.46,31.46,0,0,1,44.48,0Z"></path></g></svg>
+      </div>
+    </div>
+  </div>
   <div class="op-header">
     <img src="assets/orphic-logo-final-inverted.png" class="op-logo"><br>
     <img src="assets/orphic-small-right-angle-arrow.png" class="op-logo-arrow">
@@ -77,16 +87,6 @@
       </div>
     </div>
   </div>
-  <!-- <form>
-    <label>Activity name :</label>
-    <input type="text">
-    <label>Probability of happening in a day :</label>
-    <input type="range" min="1" max="100" value="50">
-    <label>Minimum time (minutes):</label>
-    <input type="range" min="1" max="1000" value="60">
-    <label>Maximum time (minutes):</label>
-    <input type="range" min="1" max="1000" value="120">
-  </form> -->
 
   <h3 id="chart1-title">Bar chart :</h3>
   <canvas id="chart1-canvas"></canvas>

@@ -59,6 +59,10 @@ $(".op-prompt-card").on("click",function(){
     parent.find(".op-dropdown-toggle").trigger("click");
     parent.next().find(".op-dropdown-toggle").trigger("click");
   }
+  if($(this).data("settingLabel") == "generateTheData" && $(this).data("value") == false){
+    $(".file-popup-container").show(400);
+    $(".op-file-prompt-close-container").show(400);
+  }
   if($(this).data("settingLabel") ==  "chartTypes"){
     userSettings.settings.chartTypes.pushIfNotExist($(this).data("value"));
     chartLoader.refresh();
@@ -82,6 +86,13 @@ $(".op-prompt-close-container").on("click",function(e){
   }
   $(this).hide(400);
 });
+
+$(".op-file-prompt-close-container").on("click",function(e){
+  e.stopPropagation();
+  $(this).hide(400);
+  $(this).parents(".file-popup-container").hide(400);
+});
+
 
 
 });
