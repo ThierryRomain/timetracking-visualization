@@ -52,9 +52,36 @@ $(".op-dropdown-toggle").on("click", function(){
 });
 
 $(".op-prompt-card").on("click",function(){
+  $(this).addClass("selected");
+  $(this).find(".op-prompt-close-container").show(400);
   let parent = $(this).parents(".op-section-tab");
-  parent.find(".op-dropdown-toggle").trigger("click");
-  parent.next().find(".op-dropdown-toggle").trigger("click");
+  if($(this).data("close")!=false){
+    parent.find(".op-dropdown-toggle").trigger("click");
+    parent.next().find(".op-dropdown-toggle").trigger("click");
+  }
+  if($(this).data("settingLabel") ==  "chartTypes"){
+    userSettings.settings.chartTypes.pushIfNotExist($(this).data("value"));
+  }else{
+    userSettings.addSetting($(this).data("settingLabel"),$(this).data("value"));
+  }
+  console.log(userSettings.settings);
 });
+
+$(".op-prompt-close-container").on("click",function(e){
+  e.stopPropagation();
+  let card = $(this).parent(".op-prompt-card");
+  card.removeClass("selected");
+  if(card.data("settingLabel") ==  "chartTypes"){
+    let index = userSettings.settings.chartTypes.indexOf(card.data("value"));
+    if (index > -1) {
+      userSettings.settings.chartTypes.splice(index, 1);
+    }
+  }else{
+    userSettings.addSetting(card.data("settingLabel"),"");
+  }
+  $(this).hide(400);
+  console.log(userSettings.settings);
+});
+
 
 });

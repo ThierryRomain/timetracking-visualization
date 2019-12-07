@@ -1,3 +1,7 @@
+var userSettings = new SettingsCollector(0);
+
+
+
 //activity probabilities are always defined on the day timescale
 var activities = [
   { name : "sleep" , prob : 1 , min : 300 , max : 600 },
