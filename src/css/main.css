@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Poppins|Raleway&display=swap');
 
+#chart1-canvas,
+#chart2-canvas,
+#chart3-canvas{
+  display:none;
+}
+
+#chart1-title,
+#chart2-title,
+#chart3-title{
+  display:none;
+  margin-top: 10px;
+  padding-left: 2%;
+  font-weight: 500;
+  font-size:20px;
+  margin-top:40px;
+}
+
+#chart1-canvas,
+#chart2-canvas,
+#chart3-canvas{
+  height: auto !important;
+  width: 90vw !important;
+  margin-left: 5vw;
+  border-radius: 10px;
+  background-color: white;
+  margin-top:40px;
+}
+
 .op-header {
   width: 100vw;
   height: 100px;

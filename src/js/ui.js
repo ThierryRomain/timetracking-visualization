@@ -61,10 +61,10 @@ $(".op-prompt-card").on("click",function(){
   }
   if($(this).data("settingLabel") ==  "chartTypes"){
     userSettings.settings.chartTypes.pushIfNotExist($(this).data("value"));
+    chartLoader.refresh();
   }else{
     userSettings.addSetting($(this).data("settingLabel"),$(this).data("value"));
   }
-  console.log(userSettings.settings);
 });
 
 $(".op-prompt-close-container").on("click",function(e){
@@ -76,11 +76,11 @@ $(".op-prompt-close-container").on("click",function(e){
     if (index > -1) {
       userSettings.settings.chartTypes.splice(index, 1);
     }
+    chartLoader.refresh();
   }else{
     userSettings.addSetting(card.data("settingLabel"),"");
   }
   $(this).hide(400);
-  console.log(userSettings.settings);
 });
 
 
