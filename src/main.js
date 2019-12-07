@@ -9,47 +9,48 @@ var activities = [
 
 const generator = new DataGenerator(activities,10,'months');
 let x_axis = generator.generateXaxis();
-let datasets = generator.generateDataSets(true);
+let datasets = generator.generateDataSets();
+console.log(datasets);
 
-var config = {
-  data: {
-    labels: x_axis,
-    datasets: datasets
-  },
-  options: {
-    responsive: true,
-    title: {
-      display: true,
-      text: 'Timetracking data'
-    },
-    tooltips: {
-      mode: 'index',
-    },
-    hover: {
-      mode: 'index'
-    },
-    scales: {
-      xAxes: [{
-        stacked:true,
-        scaleLabel: {
-          display: true,
-        }
-      }],
-      yAxes: [{
-        stacked: true,
-        scaleLabel: {
-          display: true,
-          labelString: '% or minutes'
-        }
-      }]
-    }
-  }
-};
-
-window.onload = function() {
-  var ctx = document.getElementById('myChart').getContext('2d');
-  window.myLine = new Chart(ctx, config);
-};
+// var config = {
+//   data: {
+//     labels: x_axis,
+//     datasets: datasets
+//   },
+//   options: {
+//     responsive: true,
+//     title: {
+//       display: true,
+//       text: 'Timetracking data'
+//     },
+//     tooltips: {
+//       mode: 'index',
+//     },
+//     hover: {
+//       mode: 'index'
+//     },
+//     scales: {
+//       xAxes: [{
+//         stacked:true,
+//         scaleLabel: {
+//           display: true,
+//         }
+//       }],
+//       yAxes: [{
+//         stacked: true,
+//         scaleLabel: {
+//           display: true,
+//           labelString: '% or minutes'
+//         }
+//       }]
+//     }
+//   }
+// };
+//
+// window.onload = function() {
+//   var ctx = document.getElementById('myChart').getContext('2d');
+//   window.myLine = new Chart(ctx, config);
+// };
 
 
 

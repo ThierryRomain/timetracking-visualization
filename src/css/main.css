@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Poppins|Raleway&display=swap');
+
 .op-header {
   width: 100vw;
   height: 100px;
@@ -19,10 +21,11 @@
 }
 
 .op-logo-arrow {
-  display: block;
+  display: inline-block;
   height: 35px;
   margin-top: 5px;
   margin-left: 10px;
+  vertical-align: top;
 }
 
 .op-project-title {
@@ -36,6 +39,7 @@
 
 .op-prompt-card {
   display: inline-block;
+  vertical-align: top;
   width: 40%;
   margin: 10px;
   padding: 20px 5%;
@@ -75,7 +79,6 @@
   display: -ms-flexbox;
   display: flex;
   margin-top: 30px;
-  margin-bottom: 30px;
   padding-right: 10%;
   padding-left: 10%;
   -webkit-box-pack: center;
@@ -97,16 +100,75 @@
 .op-section-tab {
   width: 100%;
   border-top: 2px solid #21294c;
+  background-color: #f9f2d7;
 }
 
-.dropdown-toggle {
+.op-dropdown-toggle{
+  position:relative;
   width: 100%;
-  padding: 0px;
-  background-color: #f9f2d7;
+  padding-top:15px;
+  padding-bottom: 15px;
 }
 
-.dropdown-list {
+.op-dropdown{
+  display:none;
+}
+
+.op-dropdown.open{
+  display:block;
+}
+
+.w-icon-dropdown-toggle{
+  transform:rotate(90deg);
+  transition:all 300ms ease;
+}
+
+.w-icon-dropdown-toggle.rotated{
+  transform:rotate(0deg);
+}
+
+.op-dropdown-toggle > h2 {
+  margin:0px;
+}
+
+.appearing-text {
+  font-family:Cutive Mono;
+  color:#f9f2d7;
+  display:inline-block;
+  margin-top:20px;
+  margin-left:5px;
+}
+
+.appearing-text .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.appearing-text .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 1px;
   background-color: #f9f2d7;
+  transform-origin: 0 50%;
+}
+
+.appearing-text .line1 {
+  top: 0;
+  left: 0;
+}
+
+.appearing-text .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.appearing-text .letters{
+  opacity:0;
 }
 
 @media (max-width: 767px) {

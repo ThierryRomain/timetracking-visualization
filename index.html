@@ -1,23 +1,31 @@
-<script src="lib/Chart.bundle.min.js"></script>
-<script src="lib/jquery.js"></script>
-<script src="src/timetrackingParser.js"></script>
-<script src="src/dataGenerator.js"></script>
-<script src="src/main.js"></script>
-<link href="src/css/general.css" rel="stylesheet" type="text/css">
-<link href="src/css/normalize.css" rel="stylesheet" type="text/css">
-<link href="src/css/main.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>timetracking-visualization</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="src/css/general.css" rel="stylesheet" type="text/css">
+  <link href="src/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="src/css/main.css" rel="stylesheet" type="text/css">
+</head>
 <body class="body">
   <div class="op-header">
-    <img src="assets/orphic-logo-final-inverted.png" class="op-logo">
+    <img src="assets/orphic-logo-final-inverted.png" class="op-logo"><br>
     <img src="assets/orphic-small-right-angle-arrow.png" class="op-logo-arrow">
+    <p class="appearing-text">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters">Exériences. Experiments.</span>
+      </span>
+    <p>
   </div>
   <h1 class="op-project-title">Timetracking visualization</h1>
-  <div data-delay="0" class="op-section-tab w-dropdown">
-    <div class="dropdown-toggle w-dropdown-toggle">
+  <div data-delay="0" class="op-section-tab">
+    <div class="op-dropdown-toggle">
       <h2 class="op-section-heading">1. Choose Data</h2>
-      <div class="w-icon-dropdown-toggle"></div>
+      <div class="w-icon-dropdown-toggle rotated"></div>
     </div>
-    <nav class="dropdown-list w-dropdown-list w--open">
+    <div class="op-dropdown open">
       <div class="op-center-container">
         <div class="op-prompt-card">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wind-turbine" class="op-prompt-card-icon svg-inline--fa fa-wind-turbine fa-w-17" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512"><path fill="currentColor" d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"></path></svg>          <div class="op-prompt-card-title">Generate Data</div>
@@ -28,7 +36,25 @@
           <div class="op-prompt-card-description">Load a .csv file with timetracking data. Works best with data generated from the <em>aTimeLoger</em> app.</div>
         </div>
       </div>
-    </nav>
+    </div>
+  </div>
+  <div data-delay="0" class="op-section-tab">
+    <div class="op-dropdown-toggle">
+      <h2 class="op-section-heading">2. Choose Charts</h2>
+      <div class="w-icon-dropdown-toggle"></div>
+    </div>
+    <div class="op-dropdown">
+      <div class="op-center-container">
+        <div class="op-prompt-card">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wind-turbine" class="op-prompt-card-icon svg-inline--fa fa-wind-turbine fa-w-17" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 512"><path fill="currentColor" d="M350.1 480h-48.32l-5-76.66L221 314l-10.78 166H161.9a36.94 36.94 0 0 0-33 20.42A8 8 0 0 0 136 512h240a8 8 0 0 0 7.15-11.58A36.93 36.93 0 0 0 350.1 480zm48.59-54.21l-88.35-182.32a55.73 55.73 0 0 1-.73-42.79l73.28-179.07a15.8 15.8 0 0 0-27.5-15.07L241.27 163.21a55.74 55.74 0 0 1-36.47 22.4L13.32 215.94A15.81 15.81 0 0 0 0 231.89v.23a15.8 15.8 0 0 0 14.1 15.35L203.83 268a55.78 55.78 0 0 1 37.54 20.58l130.31 153.5a15.81 15.81 0 0 0 20.53 3.63l.19-.12a15.79 15.79 0 0 0 6.29-19.8zM256 248a24 24 0 1 1 24-24 24 24 0 0 1-24 24z"></path></svg>          <div class="op-prompt-card-title">Generate Data</div>
+          <div class="op-prompt-card-description">Let us load data to test out the visualizations.</div>
+        </div>
+        <div class="op-prompt-card">
+        <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-circle-up" class="op-prompt-card-icon svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zM40 256c0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216zm92.5-12.5l115-115.1c4.7-4.7 12.3-4.7 17 0l115 115.1c4.7 4.7 4.7 12.3 0 17l-6.9 6.9c-4.7 4.7-12.5 4.7-17.1-.2L273 181.7V372c0 6.6-5.4 12-12 12h-10c-6.6 0-12-5.4-12-12V181.7l-82.5 85.6c-4.7 4.8-12.4 4.9-17.1.2l-6.9-6.9c-4.7-4.8-4.7-12.4 0-17.1z"></path></svg>          <div class="op-prompt-card-title">Load Data</div>
+          <div class="op-prompt-card-description">Load a .csv file with timetracking data. Works best with data generated from the <em>aTimeLoger</em> app.</div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- <form>
     <label>Activity name :</label>
@@ -41,5 +67,12 @@
     <input type="range" min="1" max="1000" value="120">
   </form>
   <canvas id="myChart" width="400" height="400"></canvas> -->
+  <script src="lib/Chart.bundle.min.js"></script>
+  <script src="lib/jquery.js"></script>
+  <script src="src/timetrackingParser.js"></script>
+  <script src="src/dataGenerator.js"></script>
+  <script src="src/main.js"></script>
   <script src="src/js/normalize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="src/js/ui.js"></script>
 </body>
