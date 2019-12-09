@@ -58,7 +58,7 @@ class ChartLoader{
               responsive: true,
               title: {
                 display: true,
-                text: 'Timetracking data'
+                text: 'Orphic Timetracking data'
               },
               tooltips: {
                 mode: 'index',
@@ -98,7 +98,7 @@ class ChartLoader{
           				},
           				title: {
           					display: true,
-          					text: 'Chart.js Doughnut Chart'
+          					text: 'Orphic Timetracking data'
           				},
           				animation: {
           					animateScale: true,
